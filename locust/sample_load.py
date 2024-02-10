@@ -13,5 +13,3 @@ class MyLocust(HttpUser):
         phrase = next(reader)
         print(phrase)
         response = self.client.get(self.api_path.format(phrase[0]))
-
-
