@@ -1,4 +1,4 @@
-name: Docker
+name: Create Image
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -44,6 +44,11 @@ jobs:
         uses: sigstore/cosign-installer@6e04d228eb30da1757ee4e1dd75a0ec73a653e06 #v3.1.1
         with:
           cosign-release: 'v2.1.1'
+
+      - name: Add tagg utility
+        uses: Klemensas/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
